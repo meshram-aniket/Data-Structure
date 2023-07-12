@@ -1,16 +1,16 @@
-package Stacks;
+package Stacks.Questions;
 
 import java.util.*;
 public class PushAtBottom {
     public static void pushAtBottom(int data , Stack<Integer> s) {
-       if (s.isEmpty()) {
-           s.push(data);
-           return;
-       }
+        if (s.isEmpty()) {
+            s.push(data);
+            return;
+        }
 
-       int temp = s.peek();
-       pushAtBottom(data, s);
-       s.push(temp);
+        int temp = s.pop();
+        pushAtBottom(data, s);
+        s.push(temp);
     }
 
     public static void main(String[] args) {
