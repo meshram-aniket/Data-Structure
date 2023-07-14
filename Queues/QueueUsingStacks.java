@@ -41,7 +41,7 @@ public class QueueUsingStacks {
 
 
         public int front() {
-            if (s1.isEmpty()) {
+            if (isEmpty()) {
                 return -1;
             }
 
@@ -53,7 +53,7 @@ public class QueueUsingStacks {
         }
 
         public void display() {
-            while(!s1.isEmpty()) {
+            while(!isEmpty()) {
                 System.out.print(s1.peek()+" -> ");
                 s1.pop();
             }
