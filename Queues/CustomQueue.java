@@ -1,8 +1,8 @@
 package Queues;
 
-public class QueuesA {
-    static class CustomQueue {
-        static private int[] array;
+public class CustomQueue {
+//    static class CustomQueue {
+        private int[] array;
 
         int end = -1;
 
@@ -55,7 +55,7 @@ public class QueuesA {
             }
             System.out.println("end");
         }
-    }
+//    }
 
     public static void main(String[] args) throws Exception {
         CustomQueue q = new CustomQueue(5);
