@@ -15,7 +15,7 @@ public class BinaryTrees {
 
     Node root;
 
-    public void commutate(Scanner scanner) {
+    public void populate(Scanner scanner) {
         System.out.println("enter a root value: ");
         int val = scanner.nextInt();
         root = new Node(val);
@@ -64,13 +64,13 @@ public class BinaryTrees {
         else {
             System.out.println(node.val);
         }
-        display(node.left, level+1);
+        display(node.left, level + 1);
 
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         BinaryTrees b = new BinaryTrees();
-        b.commutate(scanner);
+        b.populate(scanner);
         b.display();
         System.out.print("|\t\t\t\t"+8);
     }
