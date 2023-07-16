@@ -35,8 +35,9 @@ public class StacksAL {
 
 
         while(!s1.list.isEmpty()) {
-            System.out.print(s1.peek());
+            System.out.print(s1.peek() + " -> ");
             s1.pop();
         }
+        System.out.println("start");
     }
 }

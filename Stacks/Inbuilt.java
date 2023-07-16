@@ -13,9 +13,10 @@ public class Inbuilt {
 
 
         while(!s1.isEmpty()) {
-            System.out.print(s1.peek()+" ");
+            System.out.print(s1.peek()+" -> ");
             s1.pop();
         }
+        System.out.println("end");
 
     }
 }
