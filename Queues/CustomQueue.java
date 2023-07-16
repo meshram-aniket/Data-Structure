@@ -7,6 +7,7 @@ public class CustomQueue {
         int end = -1;
 
         public CustomQueue(int size) {
+
             array = new int[size];
         }
 
