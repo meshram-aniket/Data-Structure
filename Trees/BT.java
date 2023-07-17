@@ -1,75 +1,114 @@
 package Trees;
 
+import jdk.jshell.execution.JdiDefaultExecutionControl;
+
 import java.util.*;
 public class BT {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        BT b = new BT();
-        b.populate(scanner);
-        b.display();
+        BT tree = new BT();
+        int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
+        tree.populate(nums);
+        tree.display();
+        
     }
 
-    private static class Node {
-        int val;
-        Node left;
-        Node right;
+    public static class Node {
+        private int val;
+        private int height;
+        private Node left;
+        private Node right;
 
         public Node (int val) {
             this.val = val;
         }
-    }
 
-    Node root;
-    public void populate (Scanner scanner) {
-        System.out.println("enter the value of root");
-        int val = scanner.nextInt();
-        root = new Node(val);
-        populate(scanner, root);
-    }
-
-    public void populate (Scanner scanner, Node node) {
-        System.out.println("do you want to enter the left of " + node.val);
-        boolean left = scanner.nextBoolean();
-        if (left) {
-            System.out.println("enter the left of " + node.val);
-            int val = scanner.nextInt();
-            node.left = new Node(val);
-            populate(scanner, node.left);
-        }
-
-        System.out.println("do you want to enter right of " + node.val);
-        boolean right = scanner.nextBoolean();
-        if (right) {
-            System.out.println("enter the right of " + node.val);
-            int val = scanner.nextInt();
-            node.right = new Node(val);
-            populate(scanner, node.right);
+        public int getVal() {
+            return val;
         }
     }
 
-    public void display() {
-        display (root, 0);
+    private Node root;
+
+    public BT() {
+
     }
 
-    private void display (Node node, int level) {
+    public int height(Node node) {
         if (node == null) {
+            return -1;
+        }
+        return node.height;
+    }
+
+
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    
+    public void populate(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            this.insert(nums[i]);
+        }
+    }
+
+
+    public void populateSorted(int[] nums, int start, int end) {
+        if (start >= end) {
             return;
         }
 
-        display (node.right, level + 1);
+        int mid = (start + end) / 2;
 
-        if (level != 0) {
-            for (int i = 0; i < level - 1; i++) {
-                System.out.print("|\t\t");
-            }
-            System.out.println("|------>" + node.val);
-        }
-
-        else {
-            System.out.println(node.val);
-        }
-
-        display(node.left, level + 1);
+        this.insert((nums[mid]));
+        populateSorted(nums, start, end);
+        populateSorted(nums, mid + 1, end);
     }
 
+
+    public void insert (int val) {
+        root = insert(val, root);
+    }
+
+    private Node insert (int val, Node node) {
+        if (node == null) {
+            node = new Node(val);
+            return node;
+        }
+        if (val < node.val) {
+            node.left = insert(val, node.left);
+        }
+        if (val > node.val) {
+            node.right = insert(val, node.right);
+        }
+
+        node.height = Math.max(height(node.left), height(node.right));
+        return node;
+    }
+
+
+    public boolean balanced () {
+        return balanced(root);
+    }
+
+    private boolean balanced (Node node) {
+        if (node == null) {
+            return true;
+        }
+        return Math.abs(height(node.left) - height(node.right)) <= 1 && balanced(node.left) && balanced(node.right);
+    }
+
+    public void display() {
+        display(this.root, "root node: ");
+    }
+
+    private void display(Node node, String details) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(details + node.getVal());
+
+        display(node.left , "left child of " + node.val + " :");
+        display(node.right, "right child of " + node.val + " :");
+    }
 }
