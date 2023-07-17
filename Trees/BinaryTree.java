@@ -1,11 +1,8 @@
 package Trees;
 
-import jdk.jshell.execution.JdiDefaultExecutionControl;
-
-import java.util.*;
-public class BT {
+public class BinaryTree {
     public static void main(String[] args) {
-        BT tree = new BT();
+        BinaryTree tree = new BinaryTree();
         int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
         tree.populate(nums);
 ////        tree.display();
@@ -20,7 +17,7 @@ public class BT {
 
 
 //        tree.preOrder();
-        tree.inOrder();
+//        tree.inOrder();
 //        tree.postOrder();
 
     }
@@ -43,7 +40,7 @@ public class BT {
 
     private Node root;
 
-    public BT() {
+    public BinaryTree() {
 
     }
 
@@ -61,7 +58,7 @@ public class BT {
 
     
     public void populate(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
+        for (int i : nums) {
             this.insert(nums[i]);
         }
     }
@@ -95,9 +92,11 @@ public class BT {
             node = new Node(val);
             return node;
         }
+
         if (val < node.val) {
             node.left = insert(val, node.left);
         }
+
         if (val > node.val) {
             node.right = insert(val, node.right);
         }

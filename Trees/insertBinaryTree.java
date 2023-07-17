@@ -1,7 +1,7 @@
 package Trees;
 
 import java.util.*;
-public class BinaryTrees {
+public class insertBinaryTree {
 
     private static class Node {
         int val;
@@ -69,7 +69,7 @@ public class BinaryTrees {
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BinaryTrees b = new BinaryTrees();
+        insertBinaryTree b = new insertBinaryTree();
         b.populate(scanner);
         b.display();
         System.out.print("|\t\t\t\t"+8);
