@@ -8,7 +8,8 @@ public class BT {
         BT tree = new BT();
         int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
         tree.populate(nums);
-        tree.display();
+//        tree.display();
+        tree.display1();
         
     }
 
@@ -110,5 +111,30 @@ public class BT {
 
         display(node.left , "left child of " + node.val + " :");
         display(node.right, "right child of " + node.val + " :");
+    }
+
+    public void display1() {
+        display1(root, 0);
+    }
+
+    private void display1(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+
+        display1(node.right, level + 1);
+
+        if (level != 0) {
+            for (int i = 0; i < level - 1; i++) {
+                System.out.print("|\t\t");
+            }
+            System.out.println("|------>" + node.val);
+        }
+
+        else {
+            System.out.println(node.val);
+        }
+
+        display1(node.left, level + 1);
     }
 }
