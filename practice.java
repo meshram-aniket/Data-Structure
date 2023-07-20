@@ -2,180 +2,123 @@ import Recursion.Practice;
 
 import java.util.Scanner;
 public class practice {
-  public static void main(String[] args) {
-      practice list = new practice();
-      list.insertFirst(35);
-      list.display();
-      list.insertFirst(12);
-      list.display();
-      list.insertFirst(10);
-      list.display();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = {1, 2, 4, -1, 3, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        practice p = new practice();
+        Node node = p.insert(arr);
+        p.inOrder(node);
+        System.out.println();
+        System.out.println(p.diameter(node));
+//        System.out.println(p.sum(node, 0, 1));
 
-      list.insertLast(30);
-      list.display();
-      list.insertLast(100);
-      list.display();
-      list.insert(1000, 3);
-      list.display();
+    }
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+
+        Node(int val) {
+            this.val = val;
+        }
+    }
+
+//    Node root;
+    int ind = -1;
+    public Node insert(int[] arr) {
+        ind++;
+        if (arr[ind] == -1) {
+            return null;
+        }
+
+        Node root = new Node(arr[ind]);
+        root.left = insert(arr);
+        root.right = insert(arr);
+        return root;
+    }
+
+
+    public int val(Node node) {
+        return node.val;
+    }
+
+
+    public int height(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+
+    public int diameter(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftHeight = diameter(node.left);
+        int rightHeight = diameter(node.right);
+        int max = Math.max(height(node.left), height(node.right)) + 1;
+
+        return max + Math.min(leftHeight, rightHeight);
+    }
+
+
+    public void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.print(node.val+" ");
+        inOrder(node.right);
+    }
+
+
+    public int sum(Node node, int s, int key) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        if (key == s) {
+            return node.val;
+        }
+
+        int left = sum(node.left, s + 1, key);
+        int right = sum(node.right, s + 1, key);
+
+        return left + right;
+    }
+
+
+//    public void display() {
+//        display(root, 0);
+//    }
 //
-      System.out.println(list.deleteFirst());
-      list.display();
+//    private void display(Node root, int level) {
+//        if (root == null) {
+//            return;
+//        }
+//
+//        display(root.right, level + 1);
+//
+//        if (level != 0) {
+//            for (int i = 0; i < level - 1; i++) {
+//                System.out.print("|\t\t");
+//            }
+//            System.out.println("|----->" + root.val);
+//        }
+//
+//        else {
+//            System.out.println(root.val);
+//        }
+//        display(root.left, level + 1);
+//    }
 
-      System.out.println(list.deleteLast());
-      list.display();
-
-
-      list.delete(30);
-      list.display();
-  }
-
-  private Node head;
-  private Node tail;
-  private int size;
-
-  public practice() {
-      this.size = 0;
-  }
-
-  private class Node {
-      int val;
-      Node next;
-
-      public Node (int val) {
-          this.val = val;
-      }
-
-      public Node (int val, Node next) {
-          this.val = val;
-          this.next = next;
-      }
-  }
-
-
-  public void insertFirst(int val ) {
-      Node node = new Node(val);
-      if (head == null) {
-          head = node;
-          tail = node;
-          return;
-      }
-
-      tail.next = node;
-      node.next = head;
-      head = node;
-      size++;
-  }
-
-
-  public void insertLast (int val) {
-      Node node = new Node(val);
-      if (head == null) {
-          insertFirst(val);
-          return;
-      }
-
-      node.next = head;
-      tail.next = node;
-      tail = node;
-      size++;
-  }
-
-
-  public void insert (int val, int index) {
-
-      Node ind = getInd(index - 1);
-      if (ind == null) {
-          insertFirst(val);
-          return;
-      }
-
-      if (ind == tail) {
-          insertLast(val);
-          return;
-      }
-
-      Node node = new Node(val);
-      node.next = ind.next;
-      ind.next = node;
-      size++;
-
-  }
-
-
-  public int deleteFirst() {
-
-
-      int val = head.val;
-      head = head.next;
-      if (head.next == head) {
-          tail = head;
-      }
-      tail.next = tail.next.next;
-      size--;
-      return val;
-  }
-
-
-  public int deleteLast () {
-      int val = tail.val;
-      if (head == tail) {
-          deleteFirst();
-          return val;
-      }
-
-      Node secondLast = getInd(size - 1);
-//      secondLast.next = head;
-      tail = secondLast;
-      tail.next = head;
-      size--;
-      return val;
-
-  }
-
-
-  public void delete (int val) {
-      Node temp = head;
-
-      if (val == head.val) {
-          deleteFirst();
-          return;
-      }
-
-      if (val == tail.val) {
-          deleteLast();
-          return;
-      }
-
-      while(temp.next.val != val) {
-          temp = temp.next;
-      }
-
-      temp.next = temp.next.next;
-
-      size--;
-
-  }
-
-
-  public Node getInd(int index) {
-      Node node = head;
-      for (int i = 0; i < index; i++) {
-          node = node.next;
-      }
-      return node;
-  }
-
-
-  public void display () {
-      Node temp = head;
-      if (temp.next == null) {
-          System.out.println(temp.val +" -> HEAD");
-          return;
-      }
-      do {
-          System.out.print(temp.val + " -> ");
-          temp = temp.next;
-      } while (temp != head);
-      System.out.println("HEAD");
-  }
 }
