@@ -3,15 +3,15 @@ package Trees;
 public class BinaryTree {
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
-        tree.populate(nums);
-////        tree.display();
+//        int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
+//        tree.populate(nums);
+//        tree.display();
 //        tree.display1();
 
 
 //        BT tree = new BT();
-//        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-//        tree.populateSorted(nums);
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        tree.populateSorted(nums);
         tree.display1();
 
 
