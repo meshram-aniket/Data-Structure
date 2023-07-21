@@ -3,11 +3,11 @@ package HashSet;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Basic {
+public class Introduction {
 
     public static void main(String[] args) {
         HashSet<Integer> set = new HashSet<>();
-        
+
         // method to add element in hashset
         set.add(3);
         set.add(4);
