@@ -1,5 +1,7 @@
 package Trees.BST;
 
+import LinkList.Question.Palindrome;
+
 public class deleteNode {
     public static void main(String[] args) {
         int[] arr = {5, 1, 3, 4, 2, 7};
@@ -19,6 +21,7 @@ public class deleteNode {
 
 
 
+    Node root;
     public class Node {
         int val;
         Node left;
@@ -102,6 +105,5 @@ public class deleteNode {
         }
         return node;
     }
-
 
 }
