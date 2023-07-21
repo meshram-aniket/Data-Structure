@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class practice {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] arr = {1, 2, 4, -1, 3, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        int[] arr = {5, 1, 6, 3, 4, 2, 7};
         practice p = new practice();
-        Node node = p.insert(arr);
+        Node node = null;
+        for (int i = 0; i < arr.length; i++) {
+            node = p.insert(node, arr[i]);
+        }
         p.inOrder(node);
-        System.out.println();
-        System.out.println(p.diameter(node));
-//        System.out.println(p.sum(node, 0, 1));
+        p.inRange(node, 2, 6);
 
     }
 
@@ -24,48 +25,48 @@ public class practice {
         }
     }
 
+
 //    Node root;
     int ind = -1;
-    public Node insert(int[] arr) {
+    public Node insert(Node node, int val) {
         ind++;
-        if (arr[ind] == -1) {
-            return null;
-        }
-
-        Node root = new Node(arr[ind]);
-        root.left = insert(arr);
-        root.right = insert(arr);
-        return root;
-    }
-
-
-    public int val(Node node) {
-        return node.val;
-    }
-
-
-    public int height(Node node) {
         if (node == null) {
-            return 0;
+            node = new Node(val);
+            return node;
         }
 
-        int leftHeight = height(node.left);
-        int rightHeight = height(node.right);
+        if (val < node.val) {
+            node.left = insert(node.left, val);
+        }
+        else {
+            node.right = insert(node.right, val);
+        }
 
-        return Math.max(leftHeight, rightHeight) + 1;
+        return node;
     }
 
 
-    public int diameter(Node node) {
+    public void inRange(Node node, int start, int end) {
         if (node == null) {
-            return 0;
+            return;
         }
 
-        int leftHeight = diameter(node.left);
-        int rightHeight = diameter(node.right);
-        int max = Math.max(height(node.left), height(node.right)) + 1;
 
-        return max + Math.min(leftHeight, rightHeight);
+        if (node.val >= start && node.val <= end) {
+            inRange(node.left, start, end);
+            System.out.println(node.val);
+            inRange(node.right, start, end);
+        }
+
+        else {
+            if (node.val >= start) {
+                inRange(node.left, start, end);
+//                System.out.println(node.val);
+            } else {
+                inRange(node.right, start, end);
+//                System.out.println(node.val);
+            }
+        }
     }
 
 
@@ -75,50 +76,8 @@ public class practice {
         }
 
         inOrder(node.left);
-        System.out.print(node.val+" ");
+        System.out.print(node.val + " ");
         inOrder(node.right);
     }
-
-
-    public int sum(Node node, int s, int key) {
-
-        if (node == null) {
-            return 0;
-        }
-
-        if (key == s) {
-            return node.val;
-        }
-
-        int left = sum(node.left, s + 1, key);
-        int right = sum(node.right, s + 1, key);
-
-        return left + right;
-    }
-
-
-//    public void display() {
-//        display(root, 0);
-//    }
-//
-//    private void display(Node root, int level) {
-//        if (root == null) {
-//            return;
-//        }
-//
-//        display(root.right, level + 1);
-//
-//        if (level != 0) {
-//            for (int i = 0; i < level - 1; i++) {
-//                System.out.print("|\t\t");
-//            }
-//            System.out.println("|----->" + root.val);
-//        }
-//
-//        else {
-//            System.out.println(root.val);
-//        }
-//        display(root.left, level + 1);
-//    }
 
 }
