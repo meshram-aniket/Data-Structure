@@ -1,5 +1,4 @@
-import Arrays.Array;
-import Recursion.Practice;
+import LinkList.Question.Palindrome;
 import Trees.BST.deleteNode;
 
 import java.util.*;
@@ -14,11 +13,15 @@ public class practice {
             node = p.insert(node, arr[i]);
         }
 
+//        p.inOrder(node);
+//        System.out.println();
+//        p.delete(node, 3);
+//        p.inOrder(node);
+//        System.out.println();
+
+
+        p.sortedArray(node, arr, 0, arr.length - 1);
         p.inOrder(node);
-        System.out.println();
-        p.delete(node, 2);
-        p.inOrder(node);
-        System.out.println();
 
 
 
@@ -88,45 +91,42 @@ public class practice {
         System.out.print(node.val + " ");
         inOrder(node.right);
     }
+//
+//
 
 
-    public Node delete(Node node, int val) {
-        if (val < node.val) {
-            node.left = delete(node.left, val);
+    public Node delete (Node node, int key) {
+
+        if (key < node.val) {
+            node.left = delete(node.left, key);
         }
-        else if (val > node.val) {
-            node.right = delete(node.right, val);
+
+        else if (key > node.val) {
+            node.right = delete(node.right, key);
         }
 
         else {
-            if (node.left == null && node.right == null) {
+            if (node.right == null && node.left == null) {
                 return null;
             }
-
 
             if (node.left == null) {
                 return node.right;
             }
-            else if (node.right == null){
+
+            else if (node.right == null) {
                 return node.left;
             }
 
-
-
-                Node id = inOrderSuccesor(node.right);
-                node.val = id.val;
-                id.right = delete(node.right, id.val);
-//
-
-
-
+            Node id = inOrderSuccessor(node.right);
+            node.val = id.val;
+            node.right = delete(node.right, id.val);
         }
-
         return node;
     }
 
-    public Node inOrderSuccesor(Node node) {
-        while(node.left != null) {
+    public Node inOrderSuccessor(Node node) {
+        while (node.left != null) {
             node = node.left;
         }
         return node;
@@ -146,6 +146,86 @@ public class practice {
         display(node.left, "left of " + node.val+ ":" + node.left);
         display(node.right, "right of " + node.val+ ":" + node.right);
     }
+
+
+
+//    public Node delete(Node node, int key) {
+//        if (node == null) {
+//            return null;
+//        }
+//
+//        if (key < node.val) {
+//            node.left = delete(node.left, key);
+//        }
+//
+//        if (key > node.val) {
+//            node.right = delete(node.right, key);
+//        }
+//
+//        else {
+//
+//            // case 1
+//            if (node.left == null && node.right == null) {
+//                return null;
+//            }
+//
+//
+//            // case 2
+//            if (node.left == null) {
+//                return node.right;
+//            }
+//            else if (node.right == null) {
+//                return node.left;
+//            }
+//
+//            // case 3
+//            else {
+//                Node id = inOrderSuccesor(node.right);
+//                node.val = id.val;
+//                id.right = delete(node.right, id.val);
+//            }
+//        }
+//
+//        return node;
+//    }
+
+
+//
+    public void sortedArray (Node node, int[] arr, int start, int end) {
+
+
+        if (node == null) {
+            return;
+        }
+        if(start <= end) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        insert(node, arr[mid]);
+        sortedArray(node.left, arr, 0, mid - 1);
+        sortedArray(node.right, arr, mid + 1, end);
+    }
+
+//    public void populateSorted(int[] nums) {
+//        populateSorted(nums, 0, nums.length - 1);
+//    }
+//
+//
+//    private void populateSorted(int[] nums, int start, int end) {
+//        if (start >= end) {
+//            return;
+//        }
+//
+//        int mid = (start + end) / 2;
+//
+//        this.insert((nums[mid]));
+//        populateSorted(nums, start, mid);
+//        populateSorted(nums, mid + 1, end);
+//
+//    }
+
+
 
 
 }

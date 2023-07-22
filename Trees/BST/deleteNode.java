@@ -14,7 +14,7 @@ public class deleteNode {
         d.inOrder(root);
         System.out.println();
 
-        d.delete(root, 4);
+        d.delete(root, 3);
         d.inOrder(root);
     }
 
