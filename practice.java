@@ -3,31 +3,41 @@ import Trees.BST.deleteNode;
 
 import java.util.*;
 public class practice {
+
     public static void main(String[] args) {
-        HashMap<String , Integer> map = new HashMap<>();
-        map.put("china",23 );
-        map.put("india", 24);
-        map.put("usa", 25);
-        System.out.println(map);
-        map.put("usa", 12);
-        System.out.println(map);
-
-
-        if (map.containsKey("usa")) {
-            System.out.println("contain");
-        }
-
-
-        for (Map.Entry<String, Integer> m : map.entrySet()) {
-            System.out.println(m.getKey() + " = " + m.getValue());
-        }
-
-//        map.clear();
-//        System.out.println(map);
-
-        map.remove("china");
-        System.out.println(map);
+        int[] arr = {10, 2, -2, -20, 10};
+        int k = -10;
+        System.out.println(union(arr, k));
     }
 
 
+    public static int union (int[] arr, int k) {
+        HashMap<Integer, Integer> set = new HashMap<>();
+        set.put(0, 1);
+        int sum = 0;
+        int freq = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+
+            if (set.containsKey(sum)) {
+                set.put(sum, set.get(sum) + 1);
+            }
+
+            else {
+                set.put(sum, 1);
+            }
+
+
+            if (set.containsKey(sum - k)) {
+                freq += set.get(sum - k);
+            }
+        }
+        System.out.println(set);
+        return freq;
+
+    }
+
+//    public static void count(HashMap<Integer, Integer> map, int n) {
+//
+//    }
 }
