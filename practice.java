@@ -5,20 +5,17 @@ import java.util.*;
 public class practice {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter the number: ");
-        int num = sc.nextInt();
-
-        int fact = 1;
-        for (int i = 1; i <= num; i++) {
-            fact *= i;
-        }
-        System.out.println(fact);
+        practice p = new practice();
+//        p.fibo
        
 
     }
 
-    
+    public static void fibo(int start, int end) {
+        int sum = start + end;
+        System.out.println(sum);
+        fibo(end, sum);
+    }
 
 
 
