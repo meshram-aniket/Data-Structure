@@ -67,6 +67,18 @@ public class DLL {
         }
     }
 
+
+
+    public int removeFirst() {
+        int val = head.val;
+        head = head.next;
+        if (head == null) {
+            return 0;
+        }
+        head.previous = null;
+        return val;
+    }
+
     public void display() {
         Node node = head;
         Node last = null;
