@@ -1,5 +1,4 @@
-import java.nio.file.attribute.UserDefinedFileAttributeView;
-import java.security.spec.RSAOtherPrimeInfo;
+import LinkList.Question.Palindrome;
 import java.util.LinkedList;
 
 public class practice {
@@ -9,38 +8,18 @@ public class practice {
 
 
         practice p = new practice();
+        p.insertfirst(3);
+        p.insertfirst(4);
         p.insertfirst(5);
-//        p.insertfirst(6);
-//        p.insertfirst(7);
+        p.insertfirst(6);
+        p.insertfirst(7);
         p.display();
-//        p.insertLast(4);
-//        p.insertLast(5);
-//        p.insertfirst(10);
-//        p.display();
-//        p.add(2, 100);
-//        p.display();
-//        System.out.println(p.get(2));
-//        System.out.println(p.size());
-////        p.insert(4, 1);
-////        p.display();
-//        System.out.println(p.removeFirst());
-//        p.display();
-//        System.out.println(p.removeFirst());
-//        p.display();
-//        System.out.println(p.removeLast());
-//        p.display();
-////        p.deletelast();
-//        p.deletelast();
-//        p.deletelast();
-//        p.display();
 
-
-
-
+        p.reverse();
     }
 
     private Node head;
-    private Node tail;
+//    private Node tail;
     int size;
     practice() {
         this.size = 0;
@@ -49,6 +28,7 @@ public class practice {
     public static class Node {
         int val;
         Node next;
+        Node previous;
 
         public Node(int val) {
             this.val = val;
@@ -57,116 +37,22 @@ public class practice {
         public Node(int val, Node next, Node prev) {
             this.val = val;
             this.next = next;
+            this.previous = prev;
         }
     }
 
 
     public void insertfirst(int val) {
         Node node = new Node(val);
-
-        if (tail == null) {
-            head = tail = node;
-            return;
-        }
         node.next = head;
+
+        if (head != null) {
+            head.previous = node;
+        }
         head = node;
-        tail.next = node;
-        size++;
+        head.previous = null;
     }
 
-
-
-    public void insertLast(int val) {
-
-        Node node = new Node(val);
-        if (head ==  null) {
-            insertfirst(val);
-            return;
-        }
-        tail.next = node;
-        node.next = head;
-        tail = node;
-        size++;
-    }
-
-
-
-    public void add (int index, int val) {
-        Node node = new Node(val);
-        if (index == 0) {
-            insertfirst(val);
-            return;
-        }
-        if (index == tail.val) {
-            insertLast(val);
-            return;
-        }
-        Node temp = getIndex(index - 1);
-        temp.next = node;
-        node.next = temp.next.next;
-    }
-
-
-
-    public int get(int index) {
-        Node Index = getIndex(index);
-        return Index.val;
-    }
-
-
-    public int size() {
-        return size;
-    }
-
-
-
-
-
-
-
-
-//    public void insert(int val, int pos) {
-//        Node node = new Node(val);
-//        if (pos == 0) {
-//            insertfirst(val);
-//            return;
-//        }
-//
-//        if (pos == size - 1) {
-//            insertLast(val);
-//            return;
-//        }
-//        Node secondLast = getIndex(pos);
-//        node.next = secondLast.next;
-//        secondLast.next = node;
-//
-//        size++;
-//
-//    }
-
-
-//    public int removeFirst() {
-//
-//    }
-//
-//
-//
-//    public int removeLast() {
-//
-//
-//
-//    }
-
-//    public int remove
-
-//    public int removeFirst() {
-//
-//    }
-//
-//
-//    public int deletelast() {
-//
-//    }
 
 
     public Node getIndex(int val) {
@@ -179,18 +65,29 @@ public class practice {
 
 
 
-
     public void display() {
-       Node temp = head;
-        if (temp.next == null) {
-            System.out.println(temp.val +" -> HEAD");
-            return;
+        Node temp = head;
+        while(temp != null) {
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
         }
-       do {
-           System.out.print(temp.val + " -> ");
-           temp = temp.next;
-       }
-       while (temp != head);
         System.out.println("end");
+    }
+
+
+    public void reverse() {
+        Node temp = head;
+        Node rev = null;
+        while(temp != null) {
+            rev = temp;
+            temp = temp.next;
+        }
+//        System.out.println("end");
+
+        while(rev != null) {
+            System.out.print(rev.val + " -> ");
+            rev = rev.previous;
+        }
+        System.out.println("head");
     }
 }
