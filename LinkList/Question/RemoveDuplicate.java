@@ -11,9 +11,9 @@ public class RemoveDuplicate {
         l.add(5);
         l.add(6);
         l.add(7);
-//        l.add(7);
+        l.add(7);
         l.remove();
-//        l.display();
+        l.display();
     }
 
 
@@ -48,21 +48,21 @@ public class RemoveDuplicate {
     }
 
 
+
     public void remove() {
         Node temp = head;
-        while(temp.next != null) {
-            System.out.print(temp.val + " -> ");
+        while(temp != null && temp.next != null ) {;
             if (temp.val == temp.next.val) {
-                temp = temp.next.next;
+                temp.next = temp.next.next;
             }
             else {
                 temp = temp.next;
             }
         }
-        System.out.println("end");
     }
-//   4 -> 5 -> 5 -> 5 -> 6 -> 7 -> end
-//   t    t         t
+
+
+
     public void display() {
         Node temp = head;
         while(temp != null) {
