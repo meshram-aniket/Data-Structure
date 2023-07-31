@@ -53,7 +53,6 @@ public class Longest_word_with_prefix {
 
                 longestWord(root.children[i], temp);
                 temp.deleteCharAt(temp.length() - 1);
-                
             }
         }
     }
