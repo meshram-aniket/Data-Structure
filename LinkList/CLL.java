@@ -175,7 +175,7 @@ public class CLL {
         do {
             System.out.print(temp.val + " -> ");
             temp = temp.next;
-        } while (temp != head);
+        } while(temp != head);
         System.out.println("HEAD");
     }
 }
