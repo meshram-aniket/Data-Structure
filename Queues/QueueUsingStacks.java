@@ -1,22 +1,28 @@
 package Queues;
 
+import java.beans.PropertyEditorManager;
 import java.util.*;
 
 public class QueueUsingStacks {
     public static void main(String[] args) {
-        Queue<Integer> q = new LinkedList<>();
-        q.add(4);
-        q.add(5);
-        q.add(6);
-        q.add(7);
+//        Queue<Integer> q = new LinkedList<>();
+//        q.add(5);
+//        q.add(6);
+//        q.add(7);
+
+
+        Queues q = new Queues();
+        q.insert(5);
+        q.insert(6);
 
         while (!q.isEmpty()) {
-            System.out.print(q.peek() + " -> ");
-            q.remove();
+            System.out.print(q.removes() + " ");
+
         }
         System.out.println("end");
 
-    }
+        System.out.println(q.removes());
+   }
 
     static class Queues {
         Stack<Integer> s1 = new Stack<>();
@@ -54,5 +60,4 @@ public class QueueUsingStacks {
             return s1.isEmpty();
         }
     }
-
 }
