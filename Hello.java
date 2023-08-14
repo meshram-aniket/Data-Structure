@@ -1,7 +1,8 @@
 public class Hello {
     public  static void main(String[] args) {
-        boolean a = true;
-        String s = !a ? "false" : "true";
+        int a = 18;
+        String s = (a >= 18) ? "greater" : "smaller";
         System.out.println(s);
+
     }
 }
