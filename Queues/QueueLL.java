@@ -1,8 +1,8 @@
 package Queues;
 
-public class LLQueue {
+public class QueueLL {
     public static void main(String[] args) {
-        LLQueue q = new LLQueue();
+        QueueLL q = new QueueLL();
         q.insert(5);
         q.insert(6);
         q.insert(7);
@@ -20,7 +20,7 @@ public class LLQueue {
     private Node tail;
     private int size;
 
-    public LLQueue() {
+    public QueueLL() {
         this.size = 0;
     }
 

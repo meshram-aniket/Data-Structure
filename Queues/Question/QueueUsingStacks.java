@@ -1,4 +1,4 @@
-package Queues;
+package Queues.Question;
 
 import java.beans.PropertyEditorManager;
 import java.util.*;

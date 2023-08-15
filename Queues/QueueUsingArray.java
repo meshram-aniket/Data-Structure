@@ -1,12 +1,12 @@
 package Queues;
 
-public class CustomQueue {
+public class QueueUsingArray {
 //    static class CustomQueue {
         private int[] array;
 
         int end = -1;
 
-        public CustomQueue(int size) {
+        public QueueUsingArray(int size) {
 
             array = new int[size];
         }
@@ -59,7 +59,7 @@ public class CustomQueue {
 //    }
 
     public static void main(String[] args) throws Exception {
-        CustomQueue q = new CustomQueue(5);
+        QueueUsingArray q = new QueueUsingArray(5);
         q.insertFirst(4);
         q.insertFirst(5);
         q.insertFirst(6);

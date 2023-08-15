@@ -1,6 +1,6 @@
 package Queues;
 import java.util.*;
-public class Queues {
+public class QueueInbuilt {
     public static void main(String[] args) {
         Queue<Integer> q = new LinkedList<>();
         q.add(1);

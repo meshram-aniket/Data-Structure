@@ -1,2 +1,3 @@
-Recursion - done
-Linked List
+Backtracking - done
+Linked List - (question remaining) function: add, addfirst, addalast, delete, deleteFirst, deleteLast
+Stacks & queue  function: push, pop, peek or add, remove, peek
