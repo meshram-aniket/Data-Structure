@@ -2,49 +2,71 @@ public class Hello {
     public  static void main(String[] args) {
         int n = 4;
         boolean[][] board = new boolean[n][n];
-        NQueen(board, 0);
+        NQueen(board, 0, 0, 0);
     }
 
-    public static void NQueen(boolean[][] board, int row) {
-        if (row == board.length) {
-            display(board);
-            System.out.println();
-            return;
-        }
+    public static void NQueen(boolean[][] board, int knight, int row, int col) {
+       if (knight == board.length) {
+           display(board);
+           System.out.println();
+           return;
+       }
 
-        for (int col = 0; col < board.length; col++) {
-            if(isSafe(board, row, col)) {
-                board[row][col] = true;
-                NQueen(board, row + 1);
-                board[row][col] = false;
-            }
-        }
+       if (row == board.length - 1 && col == board.length) {
+           return;
+       }
+
+
+       if (col == board.length) {
+           NQueen(board, knight, row + 1, 0);
+           return;
+       }
+
+
+       if(isSafe(board, row, col)) {
+           board[row][col] = true;
+           NQueen(board, knight + 1, row, col + 1);
+           board[row][col] = false;
+       }
+
+       NQueen(board, knight, row, col + 1);
     }
+
+
 
     private static boolean isSafe(boolean[][] board, int row, int col) {
-        for (int i = 0; i < board.length; i++) {
-            if (board[i][col]) {
+        if(isValid(board,row - 1, col - 2)) {
+            if (board[row - 1][col - 2]) {
                 return false;
             }
         }
 
-
-        int maxLeft = Math.min(row, col);
-        for (int i = 1; i <= maxLeft; i++) {
-            if (board[row - i][col - i]) {
+        if(isValid(board,row - 1, col + 2)) {
+            if (board[row - 1][col + 2]) {
                 return false;
             }
         }
 
-
-        int maxRight = Math.min(row, board.length - col - 1);
-            for (int i = 1; i <= maxRight; i++) {
-                if (board[row - i][col + i]) {
-                    return false;
-                }
+        if(isValid(board,row - 2, col - 1)) {
+            if (board[row - 2][col - 1]) {
+                return false;
             }
+        }
+
+        if(isValid(board,row - 2, col + 1)) {
+            if (board[row - 2][col + 1]) {
+                return false;
+            }
+        }
         return true;
+    }
 
+
+    private static boolean isValid(boolean[][] board, int row, int col){
+        if (row > 0 && row < board.length && col > 0 && col < board.length) {
+            return true;
+        }
+        return false;
     }
 
 
