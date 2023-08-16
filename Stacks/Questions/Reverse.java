@@ -3,19 +3,11 @@ package Stacks.Questions;
 import java.util.Stack;
 
 public class Reverse {
-    public static void pushAtBottom(Stack<Integer> s, int data) {
-        if (s.isEmpty()) {
-            s.push(data);
-            return;
+    public static void reverse(Stack<Integer> stack) {
+        while(!stack.isEmpty()) {
+            System.out.print(stack.pop() + " -> ");
         }
-
-        int top = s.pop();
-        pushAtBottom(s, data);
-        s.push(top);
-    }
-
-    public static void reverse(Stack<Integer> s) {
-
+        System.out.println("start");
     }
 
     public static void main(String args[]) {
@@ -24,10 +16,6 @@ public class Reverse {
         stack.push(2);
         stack.push(3);
 
-
-//        reverse(stack);
-        while(!stack.isEmpty()) {
-            System.out.println(stack.pop());
-        }
+        reverse(stack);
     }
 }
