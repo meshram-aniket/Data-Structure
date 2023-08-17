@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Hello {
     public static void main(String[] args) {
-        System.out.println("hello world");
-        System.out.println("my name is aniket");
+        int[] height = {2, 1, 5, 6, 2, 3};
+        System.out.println(LargestArea(height));
     }
 
     public static int LargestArea(int[] height) {
