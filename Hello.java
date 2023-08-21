@@ -2,39 +2,78 @@ import java.util.*;
 
 public class Hello {
     public static void main(String[] args) {
-        int[] height = {2, 1, 5, 6, 2, 3};
-        System.out.println(LargestArea(height));
+        Scanner sc = new Scanner(System.in);
+        populate(sc);
+        display();
     }
 
-    public static int LargestArea(int[] height) {
-        Stack<Integer> stack = new Stack<>();
-        int max = 0;
-        stack.push(0);
-        for (int i = 0; i < height.length; i++) {
-            while (!stack.isEmpty() && height[i] < height[stack.peek()]) {
-                max = getMax(stack, max, i, height);
+
+    public static class Node{
+        int val;
+        Node left;
+        Node right;
+
+        Node (int val) {
+            this.val = val;
+        }
+    }
+
+    private static Node root;
+    public static void populate(Scanner sc) {
+        System.out.println("enter the root of the tree: ");
+        int val = sc.nextInt();
+        root = new Node(val);
+        populate(root, sc);
+    }
+
+
+    private static void populate(Node node, Scanner sc) {
+        System.out.println("do you want to enter the left of " + node.val + "?");
+        boolean left = sc.nextBoolean();
+
+        if (left) {
+            System.out.println("enter the the left of the "+ node.val);
+            int val = sc.nextInt();
+            node.left = new Node(val);
+            populate(node.left, sc);
+        }
+
+
+        System.out.println("do you want to enter the right of " + node.val + "?");
+        boolean right = sc.nextBoolean();
+
+        if (right) {
+            System.out.println("enter the the right of the "+ node.val);
+            int val = sc.nextInt();
+            node.right = new Node(val);
+            populate(node.right, sc);
+        }
+    }
+
+
+    public static void display() {
+        display(root, 0);
+    }
+
+
+    public static void display(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+
+        display(node.right, level + 1);
+        if (level != 0) {
+            for (int i = 0; i < level - 1; i++) {
+                System.out.print("|\t\t\t");
             }
-            stack.push(i);
+            System.out.println("|------>" + node.val);
         }
 
-        int i = height.length;
-        while (!stack.isEmpty()) {
-            max = getMax(stack, max, i, height);
+        else {
+            System.out.println(node.val);;
         }
-        return max;
-    }
 
-    public static int getMax(Stack<Integer> stack, int max, int i, int[] height) {
-        int area;
-        int popped = stack.pop();
-
-        if (stack.isEmpty()) {
-            area = height[popped] * i;
-        }
-        else{
-            area = height[popped] * (i - 1 - stack.peek());
-        }
-        return Math.max(area, max);
+        display(node.left, level + 1);
     }
 }
 
