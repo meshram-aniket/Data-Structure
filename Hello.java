@@ -2,11 +2,21 @@ import java.util.*;
 
 public class Hello {
     public static void main(String[] args) {
-        System.out.println("Aniket Pramod Meshram");
-        System.out.println("Jalaram Nagar Amravati");
-        System.out.println("Xavier Institute of Engineering, Mahim");
-        System.out.println("Veermata Jijabai Technological Institute");
-        System.out.println("St Francis High School");
+        int[] arr = {1, 3, 5, 7, 8, 0};
+        System.out.println(getMax(arr));
+
+    }
+
+
+    public static int getMax(int[] arr) {
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < max) {
+                max = arr[i];
+            }
+        }
+//        System.out.println(max);
+        return max;
     }
 }
 
