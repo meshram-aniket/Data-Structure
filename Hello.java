@@ -2,15 +2,32 @@ import java.util.*;
 
 public class Hello {
     public static void main(String[] args) {
-        int[] arr = new int[6];
+        int[][] arr = new int[3][3];
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = sc.nextInt();
+            }
         }
-        System.out.println(Arrays.toString(arr));
 
+
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (max < arr[i][j]) {
+                    max = arr[i][j];
+                }
+            }
+        }
+
+
+        System.out.println(max);
+        if (max % 2 == 0) {
+            System.out.println("even number");
+        }
+        else {
+            System.out.println("odd number");
+        }
     }
-
-
 }
 
