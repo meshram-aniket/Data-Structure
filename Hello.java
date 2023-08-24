@@ -22,11 +22,11 @@ public class Hello {
 
 
         System.out.println(max);
-        if (max % 2 == 0) {
-            System.out.println("even number");
+        if (max % 2 != 0) {
+            System.out.println("odd number");
         }
         else {
-            System.out.println("odd number");
+            System.out.println("not odd number");
         }
     }
 }
