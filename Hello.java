@@ -28,6 +28,7 @@ public class Hello {
         else {
             System.out.println("not odd number");
         }
+        System.out.println("hello world");
     }
 }
 
