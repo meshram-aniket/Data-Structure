@@ -44,5 +44,17 @@ public class Hello {
         factorial(num - 1);
         return fact;
     }
+
+
+    public static boolean perfect(int num) {
+        if (num == 0) {
+            return true;
+        }
+
+
+        int rem = num % 10;
+        int sum = rem * 10 / 10;
+        return perfect(num / 10);
+    }
 }
 
