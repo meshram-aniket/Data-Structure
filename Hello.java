@@ -6,6 +6,7 @@ public class Hello {
         System.out.print( "0 1 ");
         fibonachi(0,1,0,5);
         reverse(0);
+        System.out.println(factorial(5));
 
     }
 
@@ -28,6 +29,20 @@ public class Hello {
 
         reverse(num + 1);
         System.out.println(num);
+    }
+
+
+
+    static int fact = 1;
+    public static int factorial(int num) {
+        if (num == 0) {
+
+            return 1;
+        }
+
+        fact = fact * num;
+        factorial(num - 1);
+        return fact;
     }
 }
 
