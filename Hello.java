@@ -7,6 +7,7 @@ public class Hello {
         fibonachi(0,1,0,5);
         reverse(0);
         System.out.println(factorial(5));
+        perfect(1234);
 
     }
 
@@ -46,15 +47,17 @@ public class Hello {
     }
 
 
-    public static boolean perfect(int num) {
+    static int sum = 0;
+    public static void perfect(int num) {
         if (num == 0) {
-            return true;
+            System.out.println(sum);
+            return ;
         }
 
 
         int rem = num % 10;
-        int sum = rem * 10 / 10;
-        return perfect(num / 10);
+        sum = (10*sum)+rem;
+        perfect(num / 10);
     }
 }
 
