@@ -8,6 +8,7 @@ public class Hello {
         reverse(0);
         System.out.println(factorial(5));
         perfect(1234);
+        print(6);
 
     }
 
@@ -58,6 +59,16 @@ public class Hello {
         int rem = num % 10;
         sum = (10*sum)+rem;
         perfect(num / 10);
+    }
+
+
+    public static void print(int i) {
+        if (i == 0) {
+            return;
+        }
+        System.out.print("* ");
+        print(i - 1);
+
     }
 }
 
