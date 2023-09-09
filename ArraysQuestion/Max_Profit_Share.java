@@ -9,11 +9,22 @@ public class Max_Profit_Share {
 
     public static int MaxProfit(int[] price) {
         int profit = 0;
-        for (int i = 1; i < price.length - 1; i++) {
-            int curr_Profit = price[i + 1] - price[i];
-            profit = Math.max(profit, curr_Profit);
-        }
 
+        int i = 0;
+        int j = 1;
+        while(j < price.length) {
+
+            if(price[i] > price[j]) {
+                int curr_Profit = price[j - 1] - price[i];
+                profit += Math.max(profit, curr_Profit);
+                i = j;
+            }
+            if (j == price.length - 1) {
+                int curr_Profit = price[j] - price[i];
+                profit += Math.max(profit, curr_Profit);
+            }
+            j++;
+        }
         return profit;
     }
 }
