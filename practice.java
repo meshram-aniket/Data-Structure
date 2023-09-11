@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 public class practice {
     public static void main(String[] args) {
-        int[] arr = {1,4,6,8,12,43,50,60,100,120};
+        int[] arr = {1,4,6,8,12,43,50,60,100,120,130};
         System.out.println(BinarySearch(arr, 5));
     }
 
