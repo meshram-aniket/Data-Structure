@@ -3,21 +3,19 @@ import java.util.LinkedList;
 
 public class practice {
     public static void main(String[] args) {
-        int[] arr = {1,4,6,8,12,43,50,60,100,120,130};
-        System.out.println(linearSearch(arr, 50));
+        int number = 1234;
+        reverse(number);
     }
 
-
-
-    public static int linearSearch(int[] arr, int target) {
-        for (int i = 0; i < arr.length; i++) {
-            if (target == arr[i]) {
-                return i;
-            }
+    static int sum = 0;
+    public static void reverse(int num) {
+        if (num == 0) {
+            System.out.println(sum);
+            return;
         }
-        return -1;
+        int remainder = num % 10;
+        sum = (sum * 10) + remainder;
+        reverse(num / 10);
     }
-
-
 }
 
