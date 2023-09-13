@@ -3,9 +3,10 @@ import java.util.LinkedList;
 
 public class practice {
     public static void main(String[] args) {
-        int number = 1234;
+        int number = 1221;
         System.out.println(reverse(number));
         System.out.println(odd(7));
+        System.out.println(isPalindrome(number));
     }
 
     static int sum = 0;
@@ -17,6 +18,14 @@ public class practice {
         sum = (sum * 10) + remainder;
         reverse(num / 10);
         return sum;
+    }
+
+
+    public static boolean isPalindrome(int num) {
+        if (sum == num) {
+            return true;
+        }
+        return false;
     }
 
 
