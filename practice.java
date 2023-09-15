@@ -7,6 +7,7 @@ public class practice {
         System.out.println(reverse(number));
         System.out.println(odd(7));
         System.out.println(isPalindrome(number));
+        odd(6);
     }
 
     static int sum = 0;
@@ -34,6 +35,15 @@ public class practice {
             return true;
         }
         return false;
+    }
+
+    public static void even(int num) {
+        if (num % 2 == 0) {
+            System.out.println("even");
+        }
+        else {
+            System.out.println("odd");
+        }
     }
 }
 
