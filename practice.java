@@ -7,7 +7,8 @@ public class practice {
         System.out.println(reverse(number));
         System.out.println(odd(7));
         System.out.println(isPalindrome(number));
-        odd(6);
+        even(6);
+
     }
 
     static int sum = 0;
@@ -44,6 +45,10 @@ public class practice {
         else {
             System.out.println("odd");
         }
+    }
+
+    public static int answer(int num) {
+        if (num)
     }
 }
 
