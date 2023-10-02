@@ -8,6 +8,7 @@ public class practice {
         System.out.println(odd(7));
         System.out.println(isPalindrome(number));
         even(6);
+        System.out.println(prime(6));
 
     }
 
@@ -47,8 +48,17 @@ public class practice {
         }
     }
 
-    public static int answer(int num) {
-        if (num)
+    public static boolean prime(double num) {
+        double sqr = Math.sqrt(num);
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i < sqr; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
