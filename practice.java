@@ -9,6 +9,7 @@ public class practice {
         System.out.println(isPalindrome(number));
         even(6);
         System.out.println(prime(6));
+        System.out.println(num(5));
 
     }
 
@@ -59,6 +60,11 @@ public class practice {
             }
         }
         return true;
+    }
+
+
+    public static int num(int num) {
+        return num;
     }
 }
 
