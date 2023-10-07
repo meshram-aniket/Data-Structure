@@ -64,7 +64,7 @@ public class practice {
 
 
     public static int num(int num) {
-        num--;
+        num++;
         return num;
     }
 }
