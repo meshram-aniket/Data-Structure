@@ -9,7 +9,7 @@ public class practice {
         System.out.println(isPalindrome(number));
         even(6);
         System.out.println(prime(6));
-        System.out.println(num(5));
+        System.out.println(isPrime(100));
 
     }
 
@@ -63,9 +63,14 @@ public class practice {
     }
 
 
-    public static int num(int num) {
-        num+-;
-        return num;
+    public static boolean isPrime(int num) {
+        double sqr = Math.sqrt(num);
+        for (int i = 2; i < sqr; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return false;
     }
 }
 
