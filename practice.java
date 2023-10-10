@@ -1,6 +1,3 @@
-import LinkList.Question.Palindrome;
-import java.util.LinkedList;
-
 public class practice {
     public static void main(String[] args) {
         int number = 1221;
@@ -10,6 +7,7 @@ public class practice {
         even(6);
         System.out.println(prime(6));
         System.out.println(isPrime(100));
+        System.out.println(isPlain(12321));
 
     }
 
@@ -71,6 +69,26 @@ public class practice {
             }
         }
         return false;
+    }
+
+
+    public static boolean isPlain(int num) {
+        if (Reverse(num) == num) {
+            return true;
+        }
+        return false;
+
+    }
+
+        static int Sum = 0;
+    public static int Reverse(int num) {
+        if (num == 0 ) {
+            return 1;
+        }
+        int rem = num % 10;
+        sum = (sum * 10) + rem;
+        Reverse(num / 10);
+        return Sum;
     }
 }
 
