@@ -8,6 +8,7 @@ public class practice {
         System.out.println(prime(6));
         System.out.println(isPrime(100));
         System.out.println(isPlain(12321));
+        table(5);
 
     }
 
@@ -89,6 +90,13 @@ public class practice {
         sum = (sum * 10) + rem;
         Reverse(num / 10);
         return Sum;
+    }
+
+
+    public static void table(int num) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num*i));
+        }
     }
 }
 
