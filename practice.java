@@ -9,6 +9,7 @@ public class practice {
         System.out.println(isPrime(100));
         System.out.println(isPlain(12321));
         table(5);
+        cube(4);
 
     }
 
@@ -94,6 +95,13 @@ public class practice {
 
 
     public static void table(int num) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num*i));
+        }
+    }
+
+
+    public static void cube(int num) {
         for (int i = 1; i <= 10; i++) {
             System.out.println(num + " x " + i + " = " + (num*i));
         }
