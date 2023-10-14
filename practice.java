@@ -1,6 +1,7 @@
 public class practice {
     public static void main(String[] args) {
         int number = 1221;
+        int[] array = {1,2,3,10,5,6,7};
         System.out.println(reverse(number));
         System.out.println(odd(7));
         System.out.println(isPalindrome(number));
@@ -10,6 +11,7 @@ public class practice {
         System.out.println(isPlain(12321));
         table(5);
         cube(4);
+        System.out.println(array(array));
 
     }
 
@@ -105,6 +107,17 @@ public class practice {
         for (int i = 1; i <= 10; i++) {
             System.out.println(num + " x " + i + " = " + (num*i));
         }
+    }
+
+    public static int array(int[] arr) {
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        return max;
     }
 }
 
