@@ -12,6 +12,7 @@ public class practice {
         table(5);
         cube(4);
         System.out.println(array(array));
+        System.out.println(min(array));
 
     }
 
@@ -110,6 +111,17 @@ public class practice {
     }
 
     public static int array(int[] arr) {
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    public static int min(int[] arr) {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
 
