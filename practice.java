@@ -12,7 +12,7 @@ public class practice {
         table(5);
         cube(4);
         System.out.println(array(array));
-        System.out.println(min(array));
+        System.out.println(minimum(array));
 
     }
 
@@ -121,7 +121,7 @@ public class practice {
         return max;
     }
 
-    public static int min(int[] arr) {
+    public static int minimum(int[] arr) {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
 
