@@ -13,6 +13,7 @@ public class practice {
         cube(4);
         System.out.println(array(array));
         System.out.println(minimum(array));
+        fibona(0,1, 5);
 
     }
 
@@ -130,6 +131,15 @@ public class practice {
             }
         }
         return max;
+    }
+
+    public static void fibona(int a, int b, int d) {
+        if (d == 0) {
+            return;
+        }
+        int c = a + b;
+        System.out.print(c + " ");
+        fibona(b, c, d-1);
     }
 }
 
