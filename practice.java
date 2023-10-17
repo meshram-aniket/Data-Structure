@@ -14,6 +14,7 @@ public class practice {
         System.out.println(array(array));
         System.out.println(minimum(array));
         fibona(0,1, 5);
+        System.out.println(number(4));
 
     }
 
@@ -140,6 +141,14 @@ public class practice {
         int c = a + b;
         System.out.print(c + " ");
         fibona(b, c, d-1);
+    }
+
+
+    public static boolean number(int number) {
+        if (number >= 0) {
+            return true;
+        }
+        return false;
     }
 }
 
