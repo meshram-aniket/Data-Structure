@@ -156,7 +156,7 @@ public class practice {
 
     public static void print(int number) {
         for (int i = 0; i <= number ; i++) {
-            System.out.print(i + " ");
+            System.out.print(i );
         }
     }
 }
