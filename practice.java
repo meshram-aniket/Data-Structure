@@ -16,6 +16,7 @@ public class practice {
         fibona(0,1, 5);
         System.out.println(number(4));
         print(10);
+        forLoop(8);
 
     }
 
@@ -157,6 +158,13 @@ public class practice {
     public static void print(int number) {
         for (int i = 0; i <= number ; i++) {
             System.out.print(i );
+        }
+    }
+
+
+    public static void forLoop(int num) {
+        for (int i = 0; i < num; i++) {
+            System.out.println(i);
         }
     }
 }
