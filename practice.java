@@ -17,6 +17,7 @@ public class practice {
         System.out.println(number(4));
         print(10);
         forLoop(8);
+        whileLoop(6);
 
     }
 
@@ -166,6 +167,15 @@ public class practice {
         for (int i = 0; i < num; i++) {
             System.out.println(i);
         }
+    }
+
+
+    public static void whileLoop(int number) {
+        int i = 0;
+        do {
+            System.out.println(i);
+            i++;
+        }while (i < 0);
     }
 }
 
