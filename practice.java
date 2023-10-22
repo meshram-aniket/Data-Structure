@@ -18,6 +18,7 @@ public class practice {
         print(10);
         forLoop(8);
         whileLoop(6);
+        doWhile(6);
 
     }
 
@@ -172,10 +173,20 @@ public class practice {
 
     public static void whileLoop(int number) {
         int i = 0;
-        while (i < 10) {
+        while (i < number) {
             System.out.print(i + " ");
             i+=1;
         }
+    }
+
+
+    public static void doWhile(int j) {
+        int i = 0;
+        do {
+            System.out.print(j+ " ");
+            i+=1;
+        }
+        while (i < j);
     }
 
 
