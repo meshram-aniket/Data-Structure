@@ -172,10 +172,12 @@ public class practice {
 
     public static void whileLoop(int number) {
         int i = 0;
-        do {
-            System.out.println(i);
-            i++;
-        }while (i < 0);
+        while (i < 10) {
+            System.out.print(i + " ");
+            i+=1;
+        }
     }
+
+
 }
 
