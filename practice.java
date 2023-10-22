@@ -177,16 +177,25 @@ public class practice {
             System.out.print(i + " ");
             i+=1;
         }
+        System.out.println();
     }
 
 
-    public static void doWhile(int j) {
-        int i = 0;
-        do {
-            System.out.print(j+ " ");
-            i+=1;
+    public static void doWhile(int k) {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            for (int j = 1; j < 2*(k-i); j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
-        while (i < j);
+
     }
 
 
